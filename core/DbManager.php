@@ -66,7 +66,7 @@ class DbManager
 		foreach ($this->repositories as $repository) {
 			unset($repository);
 		}
-		foreach ($this->connection as $con) {
+		foreach ($this->connections as $con) {
 			unset($con);
 		}
 	}

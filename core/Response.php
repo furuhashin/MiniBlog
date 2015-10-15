@@ -1,6 +1,6 @@
 <?php
 
-class Respons
+class Response
 {
 	protected $content;
 	protected $status_code = 200;

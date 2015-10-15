@@ -34,7 +34,7 @@ abstract class Application
 		$this->response = new Response();
 		$this->session = new Session();
 		$this->db_manager = new DBManager();
-		$this->router = new Router($this->registerRouter());
+		$this->router = new Router($this->registerRoutes());
 	}
 
 	protected function configure()
@@ -114,7 +114,7 @@ abstract class Application
 
 	protected function render404page($e)
 	{
-		$this->$response->setStatusCode(404,'Not Found');
+		$this->response->setStatusCode(404,'Not Found');
 		$message = $this->isDebugMode() ? $e->getMessage() : 'Page not found'; //getMessageメソッドはForward404メソッドで定義された例外メッセージを返す。	
 		$message = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
 
