@@ -72,22 +72,22 @@ abstract class Application
 
 	public function getControllerDir()
 	{
-		return $this->gerRootDir(). '/controllers';
+		return $this->getRootDir(). '/controllers';
 	}
 
 	public function getViewDir()
 	{
-		return $this->getRootDir. '/views';
+		return $this->getRootDir(). '/views';
 	}
 
 	public function getModeDir()
 	{
-		return $this->getRootDir. '/models';
+		return $this->getRootDir(). '/models';
 	}
 
 	public function getWebDir()
 	{
-		return $this->getRootDir. '/web';
+		return $this->getRootDir(). '/web';
 	}
 
 	public function run()

@@ -30,17 +30,17 @@ abstract class Controller
 			$this->forward404();
 		}
 
-		content = $this->action_method($params);
+		$content = $this->$action_method($params);
 
 		return $content;
 	}
 
-	protected function render($variables = array(), $template = null, $layiout = 'layout')
+	protected function render($variables = array(), $template = null, $layout = 'layout')
 	{
 		$defaults = array(
 			'request' => $this->request,
 			'base_url' => $this->request->getBaseurl(),
-			'session' => $this->sesion,
+			'session' => $this->session,
 			);
 		$view = new View($this->application->getViewDir(), $defaults);
 
@@ -79,7 +79,7 @@ abstract class Controller
 			array_shift($tokens);
 		}
 
-		$tokens = sha1($form_name . session_id() . microtime());
+		$token = sha1($form_name . session_id() . microtime());
 		$tokens[] = $tokens;
 
 		$this->session->set($key,$tokens);

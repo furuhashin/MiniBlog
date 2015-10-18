@@ -9,7 +9,7 @@ Class View
 	public function __construct($base_dir,$defaults = array())
 	{
 		$this->base_dir = $base_dir;
-		$this->dafaults = $defaults;
+		$this->defaults = $defaults;
 	}
 
 	public function setLayoutVar($name, $value)
@@ -17,7 +17,7 @@ Class View
 		$this->layout_variables[$name] = $value;
 	}
 
-	public function render($_path, $_variables = array(), $_layout = fasle)
+	public function render($_path, $_variables = array(), $_layout = false)
 	{
 		$_file = $this->base_dir . '/' . $_path . '.php';
 

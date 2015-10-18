@@ -12,7 +12,7 @@ class Router
 	public function compileRoutes($definitions)
 	{
 		$routes = array();
-		foreach ($definitions as $$url => $params) {
+		foreach ($definitions as $url => $params) {
 			$tokens = explode('/', ltrim($url,'/'));
 			foreach ($tokens as $i => $token) {
 				if (0 === strpos($token, ':')){
@@ -34,7 +34,7 @@ class Router
 		}
 		foreach ($this->routes as $pattern => $params) {
 			if (preg_match('#^' . $pattern . '$#', $path_info,$matches)){
-				$params = array_merge($params, $mathes);
+				$params = array_merge($params, $matches);
 				return $params;
 			}
 		}
