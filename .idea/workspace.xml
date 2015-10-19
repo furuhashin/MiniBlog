@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16789737-41b7-4df9-b41e-9e369d6f6eea" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/AccountController.php" afterPath="$PROJECT_DIR$/controllers/AccountController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/View.php" afterPath="$PROJECT_DIR$/core/View.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.php" afterPath="$PROJECT_DIR$/views/layout.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/account/signup.php" afterPath="$PROJECT_DIR$/views/account/signup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mini-blog.localhost.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +27,8 @@
       <file leaf-file-name="Controller.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/Controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.8679246">
-              <caret line="37" column="40" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="40" />
+            <state vertical-scroll-proportion="-3.8490567">
+              <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -40,8 +37,8 @@
       <file leaf-file-name="AccountController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/AccountController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22613065">
-              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.2763819">
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -50,8 +47,8 @@
       <file leaf-file-name="View.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/View.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.7647059">
-              <caret line="19" column="20" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="15" />
+            <state vertical-scroll-proportion="-4.875">
+              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -373,10 +370,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/Request.php">
+    <entry file="file://$PROJECT_DIR$/views/account/signup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="24.5">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-16.875">
+          <caret line="27" column="100" selection-start-line="27" selection-start-column="91" selection-end-line="27" selection-end-column="100" />
+          <folding>
+            <marker date="1445272187000" expanded="true" signature="610:656" placeholder="..." />
+            <marker date="1445272187000" expanded="true" signature="638:656" placeholder="..." />
+            <marker date="1445272187000" expanded="true" signature="779:794" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.4716983">
+          <caret line="47" column="23" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -389,23 +398,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/Session.php">
+    <entry file="file://$PROJECT_DIR$/core/Request.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.4716983">
-          <caret line="47" column="23" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="23" />
+        <state vertical-scroll-proportion="24.5">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/account/signup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.875">
-          <caret line="27" column="100" selection-start-line="27" selection-start-column="91" selection-end-line="27" selection-end-column="100" />
-          <folding>
-            <marker date="1445272187000" expanded="true" signature="610:656" placeholder="..." />
-            <marker date="1445272187000" expanded="true" signature="638:656" placeholder="..." />
-            <marker date="1445272187000" expanded="true" signature="779:794" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -431,24 +428,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/View.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.7647059">
-          <caret line="19" column="20" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="15" />
+        <state vertical-scroll-proportion="-4.875">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8679246">
-          <caret line="37" column="40" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="40" />
+        <state vertical-scroll-proportion="-3.8490567">
+          <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/AccountController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22613065">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.2763819">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
           <folding />
         </state>
       </provider>
