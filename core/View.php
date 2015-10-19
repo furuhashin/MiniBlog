@@ -26,7 +26,7 @@ Class View
 		ob_start();
 		ob_implicit_flush(0);
 
-		require $_file;
+		require $_file;//viewファイルを読み込む
 
 		$content = ob_get_clean();
 
