@@ -34,7 +34,7 @@ Class View
 			$content = $this->render($_layout,array_merge($this->layout_variables, array('_content' => $content,)));
 		}
 
-		return $content;
+		return $content;//viewファイルの中身を返す
 	}
 
 	public function escape($string)

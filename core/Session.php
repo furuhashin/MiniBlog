@@ -45,7 +45,7 @@ class Session
 		}
 	}
 
-	public function setAuthenticated($bool)
+	public function Authenticated($bool)
 	{
 		$this->set('_authenticated',(bool)$bool);
 		$this->regenerate();
