@@ -115,7 +115,7 @@ abstract class Application
 	protected function render404page($e)
 	{
 		$this->response->setStatusCode(404,'Not Found');
-		$message = $this->isDebugMode() ? $e->getMessage() : 'Page not found'; //getMessageメソッドはForward404メソッドで定義された例外メッセージを返す。	
+		$message = $this->isDebugMode() ? $e->getMessage() : 'Page not found'; //getMessageメソッドはForward404メソッドで定義された例外メッセージを返す。
 		$message = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
 
 		$this->response->setContent(<<<EOF
@@ -140,7 +140,7 @@ EOF
 		$controller = $this->findController($controller_class);
 		if ($controller === false) {
 			throw new HttpNotFoundException($controller_class . 'controller is not found. ');
-		}	
+		}
 
 		$content =  $controller->run($action,$params);
 		$this->response->setContent($content);
