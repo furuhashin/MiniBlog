@@ -10,9 +10,10 @@ class Session
 		if (!self::$sessionStarted){
 
 			session_start();
+
 			self::$sessionStarted = true;
 		}
-	}
+		}
 
 	public function set($name, $value)
 	{

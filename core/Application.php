@@ -34,7 +34,7 @@ abstract class Application
 		$this->response = new Response();
 		$this->session = new Session();
 		$this->db_manager = new DBManager();
-		$this->router = new Router($this->registerRoutes());
+		$this->router = new Router($this->registerRoutes());//MiniBlogApplicationクラスのメソッド
 	}
 
 	protected function configure()
