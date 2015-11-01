@@ -50,7 +50,7 @@ class DbManager
 		return $con;
 	}
 
-	public function get($repository_name)
+	public function get($repository_name)//"$repository_name"Repositoryのインスタンスを返す
 	{
 		if (!isset($this->repositories[$repository_name])) {
 			$repository_class = $repository_name . 'Repository';
