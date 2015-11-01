@@ -65,7 +65,7 @@ abstract class Controller
 			$host = $this->request->getHost();
 			$base_url = $this->request->getBaseUrl();
 
-			$url = $protocol . $host .$base_url . $url;
+			$url = $protocol . $host . $base_url . $url;
 		}
 		$this->response->setStatusCode(302, 'Found');
 		$this->response->setHttpHeader('Location', $url);
@@ -89,7 +89,7 @@ abstract class Controller
 
 	protected function checkCsrfToken($form_name, $token)
 	{
-		$key = 'csrf_tokens' . $form_name;
+		$key = 'csrf_tokens/' . $form_name;
 		$tokens = $this->session->get($key, array());
 
 		if (false !== ($pos = array_search($token, $tokens, true))) {

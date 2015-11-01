@@ -72,22 +72,22 @@ abstract class Application
 
 	public function getControllerDir()
 	{
-		return $this->getRootDir(). '/controllers';
+		return $this->getRootDir() . '/controllers';
 	}
 
 	public function getViewDir()
 	{
-		return $this->getRootDir(). '/views';
+		return $this->getRootDir() . '/views';
 	}
 
 	public function getModelDir()
 	{
-		return $this->getRootDir(). '/models';
+		return $this->getRootDir() . '/models';
 	}
 
 	public function getWebDir()
 	{
-		return $this->getRootDir(). '/web';
+		return $this->getRootDir() . '/web';
 	}
 
 	public function run()
@@ -149,7 +149,7 @@ EOF
 	protected function findController($controller_class)
 	{
 		if (!class_exists($controller_class)) {
-			$controller_file = $this->getControllerDir() . '/' . $controller_class. '.php';
+			$controller_file = $this->getControllerDir() . '/' . $controller_class . '.php';
 			if (!is_readable($controller_file)) {
 				return false;
 			} else {

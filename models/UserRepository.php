@@ -7,7 +7,7 @@ class UserRepository extends DbRepository
 		$password = $this->hashPassword($password);
 		$now = new DateTime();//定義済みクラス
 
-		$sql = "INSERT INTO user (user_name, password, created_at) VALUES(:user_name, :password, :created_at)";
+		$sql = "INSERT INTO user(user_name, password, created_at) VALUES(:user_name, :password, :created_at)";
 		$stmt = $this->execute($sql, array(
 			':user_name' => $user_name,
 			':password' => $password,
@@ -28,7 +28,7 @@ class UserRepository extends DbRepository
 
 	public function isUniqueUserName($user_name)
 	{
-		$sql = "SELECT COUNT(id) as count FROM user WHERE user_name = :user_name"
+		$sql = "SELECT COUNT(id) as count FROM user WHERE user_name = :user_name";
 
 		$row = $this->fetch($sql, array(':user_name' => $user_name));
 		if ($row['count'] === '0') {

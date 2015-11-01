@@ -11,7 +11,7 @@ class StatusController extends Controller
             'statuses' => $statuses,
             'body' => '',
             '_token' => $this->generateCsrfToken('status/post'),
-        )) ;
+        ));
     }
 
     public function postAction()
