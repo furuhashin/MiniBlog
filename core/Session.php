@@ -28,7 +28,7 @@ class Session
 		return $default;
 	}
 
-	public function remove()
+	public function remove($name)
 	{
 		unset($_SESSION[$name]);
 	}
@@ -47,7 +47,7 @@ class Session
 		}
 	}
 
-	public function Authenticated($bool)
+	public function setAuthenticated($bool)
 	{
 		$this->set('_authenticated',(bool)$bool);
 		$this->regenerate();

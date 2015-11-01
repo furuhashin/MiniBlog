@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title><?php if (isset($title)) : echo $this->escape($title) . ' - ' ; 
-	endif ; ?>MIni Blog</title>
+	endif ; ?>Mini Blog</title>
 </head>
 <body>
 	<div id = "header">

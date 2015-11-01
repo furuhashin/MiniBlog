@@ -1,6 +1,6 @@
 <?php
 
-Class View
+class View
 {
 	protected $base_dir;
 	protected $defaults;

@@ -5,7 +5,7 @@ class Request
 	public function isPost()
 	{
 		if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-			return 'true';
+			return true;
 		}
 		return false;
 	}
@@ -36,13 +36,13 @@ class Request
 
 	public function isSsl()
 	{
-		if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'ON'){
+		if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on'){
 			return true;
 		}
 		return false;
 	}
 
-	public function getRequsetUri()
+	public function getRequestUri()
 	{
 		return $_SERVER['REQUEST_URI'];
 	}
@@ -50,12 +50,12 @@ class Request
 	public function getBaseUrl()
 	{
 		$script_name = $_SERVER['SCRIPT_NAME'];
-		$request_uri = $this->getRequsetUri();
+		$request_uri = $this->getRequestUri();
 		if (0 === strpos($request_uri, $script_name)){
 			return $script_name;
 		}
 		else if (0 === strpos($request_uri, dirname($script_name))) {
-			return rtrim(dirname($script_name));
+			return rtrim(dirname($script_name), '/');
 		}
 		return '';
 	}
@@ -63,7 +63,7 @@ class Request
 	public function getPathInfo()
 	{
 		$base_url = $this->getBaseUrl();
-		$request_uri = $this->getRequsetUri();
+		$request_uri = $this->getRequestUri();
 		if (false !== ($pos = strpos($request_uri, '?'))){
 			$request_uri = substr($request_uri,0,$pos);
 		}

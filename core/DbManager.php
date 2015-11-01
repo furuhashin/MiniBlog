@@ -22,7 +22,7 @@ class DbManager
 
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		$this->connections['name'] = $con;
+		$this->connections[$name] = $con;
 	}
 
 	public function getConnection($name = null)
@@ -30,7 +30,7 @@ class DbManager
 		if (is_null($name)) {
 			return current($this->connections);
 		}
-		return $this->connections['name'];
+		return $this->connections[$name];
 	}
 
 

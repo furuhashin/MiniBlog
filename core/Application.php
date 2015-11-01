@@ -33,7 +33,7 @@ abstract class Application
 		$this->request = new Request();
 		$this->response = new Response();
 		$this->session = new Session();
-		$this->db_manager = new DBManager();
+		$this->db_manager = new DbManager();
 		$this->router = new Router($this->registerRoutes());//MiniBlogApplicationクラスのメソッド
 	}
 
@@ -80,7 +80,7 @@ abstract class Application
 		return $this->getRootDir(). '/views';
 	}
 
-	public function getModeDir()
+	public function getModelDir()
 	{
 		return $this->getRootDir(). '/models';
 	}
@@ -103,7 +103,7 @@ abstract class Application
 
 		$this->runAction($controller,$action,$params);
 		} catch (HttpNotFoundException $e){ //$eはHttpNotFoundExceptionクラスのインスタンス。インスタンスはConntorollerクラスのForward404メソッドで作られる。
-			$this->render404page($e);
+			$this->render404Page($e);
 		} catch (UnauthorizedActionException $e) {
 			list($controller, $action) = $this->login_action;
 			$this->runAction($controller, $action);
@@ -112,7 +112,7 @@ abstract class Application
 		$this->response->send();
 	}
 
-	protected function render404page($e)
+	protected function render404Page($e)
 	{
 		$this->response->setStatusCode(404,'Not Found');
 		$message = $this->isDebugMode() ? $e->getMessage() : 'Page not found'; //getMessageメソッドはForward404メソッドで定義された例外メッセージを返す。

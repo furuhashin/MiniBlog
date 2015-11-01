@@ -16,9 +16,9 @@ class MiniBlogApplication extends Application
 			=> array('controller' => 'status', 'action' => 'index'),
 			'/status/post'
 			=> array('controller' => 'status', 'action' => 'post'),
-			'account'
+			'/account'
 			=> array('controller' => 'account', 'action' => 'index'),
-			'account/:action'
+			'/account/:action'
 			=> array('controller' => 'account'),
 			);
 	}

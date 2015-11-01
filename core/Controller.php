@@ -39,7 +39,7 @@ abstract class Controller
 	{
 		$defaults = array(
 			'request' => $this->request,
-			'base_url' => $this->request->getBaseurl(),
+			'base_url' => $this->request->getBaseUrl(),
 			'session' => $this->session,
 			);
 		$view = new View($this->application->getViewDir(), $defaults);
@@ -55,7 +55,7 @@ abstract class Controller
 
 	protected function forward404()
 	{
-		throw new HttpNotFoundException('Forward 404 page from' . $this->controller_name . '/' . $this->action_name);
+		throw new HttpNotFoundException('Forwarded  404 page from' . $this->controller_name . '/' . $this->action_name);
 	}
 
 	protected function redirect($url)
@@ -73,18 +73,18 @@ abstract class Controller
 
 	protected function generateCsrfToken($form_name)
 	{
-		$key = 'csrf_tokens' . $form_name;
+		$key = 'csrf_tokens/' . $form_name;
 		$tokens = $this->session->get($key,array());
 		if (count($tokens) >= 10) {
 			array_shift($tokens);
 		}
 
 		$token = sha1($form_name . session_id() . microtime());
-		$tokens[] = $tokens;
+		$tokens[] = $token;
 
 		$this->session->set($key,$tokens);
 
-		return $tokens;
+		return $token;
 	}
 
 	protected function checkCsrfToken($form_name, $token)
@@ -93,7 +93,7 @@ abstract class Controller
 		$tokens = $this->session->get($key, array());
 
 		if (false !== ($pos = array_search($token, $tokens, true))) {
-			unset($tokens[$post]);
+			unset($tokens[$pos]);
 			$this->session->set($key, $tokens);
 
 			return true;

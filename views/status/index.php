@@ -10,7 +10,7 @@
     <?php endif; ?>
 
 
-    <textarea name="body" row="2" cols="60"><?php echo $this->escape($body); ?></textarea> <!--escapeはviewクラスのメソッド-->
+    <textarea name="body" rows="2" cols="60"><?php echo $this->escape($body); ?></textarea> <!--escapeはviewクラスのメソッド-->
 
     <p>
         <input type="submit" value="発言"/>

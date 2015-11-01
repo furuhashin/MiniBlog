@@ -38,14 +38,14 @@ class AccountController extends Controller
 
 		if (!strlen($password)) {
 			$errors[] = 'パスワードを入力してください';
-		}elseif(4>strlen($password)) || strlen($password)>30{
+		}elseif(4>strlen($password) || strlen($password)>30){
 			$errors[] = 'パスワードは30文字以内で入力してください';
 		}
 
 		if (count($errors) === 0){
 			$this->db_manager->get('User')->insert($user_name,$password);
 
-		$this->session->setAttribute(true);
+		$this->session->setAuthenticated(true);
 
 		$user = $this->db_manager->get('User')->fetchByUserName($user_name);
 		$this->session->set('user', $user);
