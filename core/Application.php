@@ -93,15 +93,15 @@ abstract class Application
 	public function run()
 	{
 		try{
-		$params = $this->router->resolve($this->request->getPathInfo());
+		$params = $this->router->resolve($this->request->getpathinfo());//":"がついた部分が変換されたルーティングパラメタが格納される※定義はminiblogapplicationクラス
 		if ($params === false) {
-			throw new HttpNotFoundException('No route found for ' . $this->request->getPathInfo());
+			throw new httpnotfoundexception('no route found for ' . $this->request->getpathinfo());
 		}
 
 		$controller = $params['controller'];
 		$action = $params['action'];
 
-		$this->runAction($controller,$action,$params);
+		$this->runaction($controller,$action,$params);
 		} catch (HttpNotFoundException $e){ //$eはHttpNotFoundExceptionクラスのインスタンス。インスタンスはConntorollerクラスのForward404メソッドで作られる。
 			$this->render404Page($e);
 		} catch (UnauthorizedActionException $e) {
@@ -137,12 +137,12 @@ EOF
 	public function runAction($controller_name,$action,$params = array())
 	{
 		$controller_class = ucfirst($controller_name) . 'Controller';
-		$controller = $this->findController($controller_class);
+		$controller = $this->findController($controller_class);//"$controller_class"クラスのインスタンスを作成
 		if ($controller === false) {
 			throw new HttpNotFoundException($controller_class . 'controller is not found. ');
 		}
 
-		$content =  $controller->run($action,$params);
+		$content =  $controller->run($action,$params);//"$controller_class"はControllerクラスを継承しているのでrun()が使用できる
 		$this->response->setContent($content);
 		}
 
@@ -160,7 +160,7 @@ EOF
 			}
 		}
 
-		return new $controller_class($this);//Conttrollerクラスのインスタンスを作成(hogeControllerのhogeの部分は可変)
+		return new $controller_class($this);//"$controller_class"クラスのインスタンスを作成
 	}
 }
 

@@ -1,13 +1,13 @@
 <?php
 
-class StatusController extends Controller
+class StatusController extends Controller//Controllerクラスのインスタンス先※Controllerクラスはabstrastクラスなので必ずインスタンス化される
 {
     public function indexAction()
     {
         $user = $this->session->get('user');
         $statuses = $this->db_manager->get('Status')->fetchAllPersonalArchivesByUserId($user['id']);//StatusRepositoryクラスのインスタンスを取得し、同クラスのメソッドの実行
 
-        return $this->render(array(
+      return $this->render(array(//viewファイルで使用する変数を定義
             'statuses' => $statuses,
             'body' => '',
             '_token' => $this->generateCsrfToken('status/post'),
@@ -45,11 +45,37 @@ class StatusController extends Controller
         $user = $this->session->get('user');
         $statuses = $this->db_manager->get('Status')->fetchAllPersonalArchivesByUserId($user['id']);
 
-        return $this->render(array(
-            'errors'    => $errors,
-            'body'      => $body,
-            'statuses'  => $statuses,
-            '_token'    => $this->generateCsrfToken('status/post'),
-            ),'index');
+        return $this->render(array(//viewファイルで使用する変数を定義
+            'errors' => $errors,
+            'body' => $body,
+            'statuses' => $statuses,
+            '_token' => $this->generateCsrfToken('status/post'),
+        ), 'index');
+    }
+
+    public function userAction($params)
+    {
+        $user = $this->db_manager->get('User')->fetchByUserName($params['user_name']);
+        if (!$user) {
+            $this->forward404();
+        }
+
+        $statuses = $this->db_manager->get('Status')->fetchAllByUserId($user['id']);
+
+        return $this->render(array(//viewファイルで使用する変数を定義
+            'user' => $user,
+            'statuses' => $statuses,
+        ));
+    }
+
+    public function showAction($params)
+    {
+        $status = $this->db_manager->get('Status')->fetchByIdAndUserName($params['id'],$params['user_name']);
+
+        if (!$status) {
+            $this->forward404();
+        }
+
+        return $this->render(array('status' => $status));//viewファイルで使用する変数を定義
     }
 }

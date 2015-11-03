@@ -30,12 +30,12 @@ abstract class Controller
 			$this->forward404();
 		}
 
-		$content = $this->$action_method($params);
+		$content = $this->$action_method($params);//ここの$thisはApplicatonクラスで作られた"$controller_class"クラスのインスタンスex.StatusController
 
 		return $content;
 	}
 
-	protected function render($variables = array(), $template = null, $layout = 'layout')
+	protected function render($variables = array(), $template = null, $layout = 'layout')//render()は"$controller_class"クラスで行われる
 	{
 		$defaults = array(
 			'request' => $this->request,

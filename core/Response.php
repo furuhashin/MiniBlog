@@ -13,7 +13,7 @@ class Response
 		foreach ($this->http_headers as $name => $value) {
 			header($name . ':' . $value);
 		}
-		echo $this->content;
+		echo $this->content;//"$controller_class"クラスのアクション結果、viewファイルの出力結果等が格納されている
 	}
 
 	public function setContent($content)

@@ -1,6 +1,6 @@
 <?php
 
-class AccountController extends Controller
+class AccountController extends Controller//Controllerクラスのインスタンス先※Controllerクラスはabstrastクラスなので必ずインスタンス化日される
 {
 	public function signupAction()
 	{
