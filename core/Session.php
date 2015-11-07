@@ -47,7 +47,7 @@ class Session
 		}
 	}
 
-	public function setAuthenticated($bool)
+	public function setAuthenticated($bool)//AcountControllerクラスで呼び出される
 	{
 		$this->set('_authenticated',(bool)$bool);
 		$this->regenerate();

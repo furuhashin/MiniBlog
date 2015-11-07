@@ -95,13 +95,13 @@ abstract class Application
 		try{
 		$params = $this->router->resolve($this->request->getpathinfo());//":"がついた部分が変換されたルーティングパラメタが格納される※定義はminiblogapplicationクラス
 		if ($params === false) {
-			throw new httpnotfoundexception('no route found for ' . $this->request->getpathinfo());
+			throw new HttpNotFoundException('no route found for ' . $this->request->getPathinfo());
 		}
 
 		$controller = $params['controller'];
 		$action = $params['action'];
 
-		$this->runaction($controller,$action,$params);
+		$this->runAction($controller,$action,$params);
 		} catch (HttpNotFoundException $e){ //$eはHttpNotFoundExceptionクラスのインスタンス。インスタンスはConntorollerクラスのForward404メソッドで作られる。
 			$this->render404Page($e);
 		} catch (UnauthorizedActionException $e) {

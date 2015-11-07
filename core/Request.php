@@ -28,10 +28,10 @@ class Request
 
 	public function getHost()
 	{
-		if (!empty($_SERVER['HTTP_HOST'])){
+		if (!empty($_SERVER['HTTP_HOST'])){//ex."localhost"
 			return $_SERVER['HTTP_HOST'];
 		}
-		return $_SERVER['SERVER_NAME'];
+		return $_SERVER['SERVER_NAME'];//ex."localhost"
 	}
 
 	public function isSsl()
@@ -44,12 +44,12 @@ class Request
 
 	public function getRequestUri()
 	{
-		return $_SERVER['REQUEST_URI'];
+		return $_SERVER['REQUEST_URI'];//ex./index_dev.php/account
 	}
 
 	public function getBaseUrl()
 	{
-		$script_name = $_SERVER['SCRIPT_NAME'];
+		$script_name = $_SERVER['SCRIPT_NAME'];//ex./index_dev.php
 		$request_uri = $this->getRequestUri();
 		if (0 === strpos($request_uri, $script_name)){
 			return $script_name;
