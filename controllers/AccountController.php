@@ -2,6 +2,7 @@
 
 class AccountController extends Controller//Controllerクラスのインスタンス先※Controllerクラスはabstrastクラスなので必ずインスタンス化日される
 {
+	protected $auth_actions = array('index', 'signout');
 	public function signupAction()
 	{
 		return $this->render(array(
@@ -128,6 +129,14 @@ class AccountController extends Controller//Controllerクラスのインスタ�
 			'errors' => $errors,
 			'_token' => $this->generateCsrfToken('account/signin'),
 		), 'signin');
+	}
+
+	public function signoutAction()
+	{
+		$this->session->clear();
+		$this->session->setAuthenticated(false);
+
+		return $this->redirect('/account/signin');
 	}
 
 }

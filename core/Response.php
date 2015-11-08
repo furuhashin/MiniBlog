@@ -21,13 +21,13 @@ class Response
 		$this->content = $content;
 	}
 
-	public function setStatusCode($status_code, $status_text ='')
+	public function setStatusCode($status_code, $status_text ='')//send()で使う
 	{
 		$this->status_code = $status_code;
 		$this->status_text = $status_text;
 	}
 
-	public function setHttpHeader($name,$value)
+	public function setHttpHeader($name,$value)//send()で使う
 	{
 		$this->http_headers[$name] = $value;
 

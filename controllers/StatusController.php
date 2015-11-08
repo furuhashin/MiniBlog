@@ -2,6 +2,7 @@
 
 class StatusController extends Controller//Controllerクラスのインスタンス先※Controllerクラスはabstrastクラスなので必ずインスタンス化される
 {
+    protected $auth_actions = array('index', 'post');
     public function indexAction()
     {
         $user = $this->session->get('user');
@@ -62,10 +63,21 @@ class StatusController extends Controller//Controllerクラスのインスタン
 
         $statuses = $this->db_manager->get('Status')->fetchAllByUserId($user['id']);
 
+        $following = null;
+        if ($this->session->isAuthenticated()){
+            $my = $this->session->get('user');
+            if ($my['id'] !== $user['id']){
+                $following = $this->db_manager->get('Following')->isFollowing($my['id'],$user['id']);//$followingには'true'or'false'が入る
+            }
+        }
+
         return $this->render(array(//viewファイルで使用する変数を定義
             'user' => $user,
             'statuses' => $statuses,
+            'following' => $following,
+            '_token' => $this->generateCsrfToken('account/follow'),
         ));
+
     }
 
     public function showAction($params)
