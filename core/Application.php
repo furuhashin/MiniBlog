@@ -142,6 +142,7 @@ EOF
 			throw new HttpNotFoundException($controller_class . 'controller is not found. ');
 		}
 
+
 		$content =  $controller->run($action,$params);//"$controller_class"はControllerクラスを継承しているのでrun()が使用できる
 		$this->response->setContent($content);
 		}
