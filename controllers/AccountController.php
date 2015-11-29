@@ -48,7 +48,7 @@ class AccountController extends Controller//Controllerクラスのインスタ�
 
 		$this->session->setAuthenticated(true);
 
-		$user = $this->db_manager->get('User')->fetchByUserName($user_name);//DBのuserテーブルから一行持ってきてい
+		$user = $this->db_manager->get('User')->fetchByUserName($user_name);//DBのuserテーブルから一行持ってきている
 		$this->session->set('user', $user);//取得した一行をセッション変数に格納している
 
 		return $this->redirect('/');
