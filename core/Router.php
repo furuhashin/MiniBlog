@@ -9,7 +9,7 @@ class Router
 		$this->routes = $this->compileRoutes($definitions);
 	}
 
-	public function compileRoutes($definitions)//ルーティング定義配列を正規化して連想配列で動的な値を受け取れるようにする
+	public function compileRoutes($definitions)//ルーティング定義配列を正規化して連想配列で動的な値を受け取れるようにするex.'/user/:user_name'→'/user/(?P<' . user_name . '>[^/]+)'
 	{
 		$routes = array();
 		foreach ($definitions as $url => $params) {
@@ -27,7 +27,7 @@ class Router
 		return $routes;
 	}
 
-	public function resolve($path_info)
+	public function resolve($path_info)//Applicationクラスのrun()で呼び出されるex.'#^' . /user/(?P[^/]+) . '$#'
 	{
 		if ('/' !== substr($path_info,0,1)){
 			$path_info = '/' . $path_info;
@@ -35,7 +35,6 @@ class Router
 		foreach ($this->routes as $pattern => $params) {
 			if (preg_match('#^' . $pattern . '$#', $path_info,$matches)){
 				$params = array_merge($params, $matches);
-
 				return $params;
 			}
 		}
