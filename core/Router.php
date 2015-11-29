@@ -4,12 +4,12 @@ class Router
 {
 	protected $routes;
 
-	public function __construct($definitions)
+	public function __construct($definitions)//MiniBlogApplicationクラスのregisterRoutes()の返り値が引数となる
 	{
 		$this->routes = $this->compileRoutes($definitions);
 	}
 
-	public function compileRoutes($definitions)
+	public function compileRoutes($definitions)//ルーティング定義配列を正規化して連想配列で動的な値を受け取れるようにする
 	{
 		$routes = array();
 		foreach ($definitions as $url => $params) {
