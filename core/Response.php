@@ -21,15 +21,15 @@ class Response
 		$this->content = $content;
 	}
 
-	public function setStatusCode($status_code, $status_text ='')//send()で使う
+	public function setStatusCode($status_code, $status_text ='')//Controllerクラスのredirect()で呼び出される
 	{
-		$this->status_code = $status_code;
-		$this->status_text = $status_text;
+		$this->status_code = $status_code;//send()で使う
+		$this->status_text = $status_text;//send()で使う
 	}
 
-	public function setHttpHeader($name,$value)//send()で使う
+	public function setHttpHeader($name,$value)//Controllerクラスのredirect()で呼び出される
 	{
-		$this->http_headers[$name] = $value;
+		$this->http_headers[$name] = $value;//send()で使う
 
 	}
 
