@@ -55,7 +55,7 @@ class DbManager
 		if (!isset($this->repositories[$repository_name])) {
 			$repository_class = $repository_name . 'Repository';
 			$con = $this->getConnectionForRepository($repository_name);
-			$repository = new $repository_class($con);//DBへの接続が完了する
+			$repository = new $repository_class($con);//DBへの接続が完了する。またDbRepositoryクラスがここで実行される
 			$this->repositories[$repository_name] = $repository;
 		}
 		return $this->repositories[$repository_name];
