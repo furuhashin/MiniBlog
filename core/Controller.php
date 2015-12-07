@@ -30,19 +30,21 @@ abstract class Controller
 			$this->forward404();
 		}
 
-		$content = $this->$action_method($params);//ここの$thisはApplicatonクラスで作られた"$controller_class"クラスのインスタンスex.StatusController
+		$content = $this->$action_method($params);//可変関数を用いている。Conrrolleクラスは抽象クラスなので、実態は〜Controllerクラスのインスタンス。
+												  //ここの$thisはApplicatonクラスで作られた"$controller_class"クラスのインスタンスex.StatusController
 
 		return $content;
 	}
 
-	protected function render($variables = array(), $template = null, $layout = 'layout')//render()は"$controller_class"クラスで行われる
+	protected function render($variables = array(), $template = null, $layout = 'layout')//render()は"$controller_class"クラスで行われる.viewクラスのrender()をラッピングしている。
+
 	{
 		$defaults = array(
 			'request' => $this->request,
 			'base_url' => $this->request->getBaseUrl(),
 			'session' => $this->session,
 			);
-		$view = new View($this->application->getViewDir(), $defaults);
+		$view = new View($this->application->getViewDir(), $defaults);//viewクラスのコンストラクタの渡される
 
 		if (is_null($template)) {
 			$template = $this->action_name;

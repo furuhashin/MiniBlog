@@ -43,7 +43,7 @@ abstract class Application
 
 	abstract public function getRootDir();
 
-	abstract protected function registerRoutes();
+	abstract protected function registerRoutes();//抽象メソッドは子クラス(MiniBlogApplicationクラス)で必ず定義しなければならない
 
 	public function isDebugMode()
 	{
@@ -161,7 +161,7 @@ EOF
 			}
 		}
 
-		return new $controller_class($this);//"$controller_class"クラスのインスタンスを作成
+		return new $controller_class($this);//"$controller_class"クラスのインスタンスを作成。ControllerクラスのコンンストラクタにApplicationクラスのインスタンスを渡す
 	}
 }
 
