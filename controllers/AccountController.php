@@ -145,6 +145,8 @@ class AccountController extends Controller//Controller銈儵銈广伄銈ゃ兂銈广偪銉
 	}
 
 	public function followAction()
+
+
 	{
 		if (!$this->request->isPost()) {
 			$this->forward404();
@@ -173,7 +175,18 @@ class AccountController extends Controller//Controller銈儵銈广伄銈ゃ兂銈广偪銉
 		}
 
 		return $this->redirect('/account');
+
+
+
 	}
 
+	public function changepasswd()
+	{
+		$user = $this->session->get('user');
+		$password = $this->request->getPost('password');
+		$this->db_manager->get('User')->changeUsersPassword($user['id'], $password);
+
+		return $this->redirect('/');
+	}
 
 }
