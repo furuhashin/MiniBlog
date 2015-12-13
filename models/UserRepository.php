@@ -47,13 +47,11 @@ class UserRepository extends DbRepository
 
 	public function changeUsersPassword($user_name,$password)
 	{
-
-
-		$sql = "update user set password = :password where user_name = :user_name";
+		$password = $this->hashPassword($password);
+		$sql = "UPDATE user SET password = :password where user_name = :user_name";
 
 		$stmt = $this->execute($sql, array(
 				':user_name' => $user_name,
 				':password' => $password,));
-
 	}
 }

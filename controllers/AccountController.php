@@ -180,13 +180,60 @@ class AccountController extends Controller//Controllerクラスのインスタ�
 
 	}
 
-	public function changepasswd()
+	public function passwdAction()//パスワード変更画面のレンダリング
 	{
-		$user = $this->session->get('user');
-		$password = $this->request->getPost('password');
-		$this->db_manager->get('User')->changeUsersPassword($user['id'], $password);
 
-		return $this->redirect('/');
+		return $this->render(array(
+				'_token' => $this->generateCsrfToken('account/changepasswd'),
+		),'changepasswd');
 	}
+
+	public function changepasswdAction()//実処理
+	{
+		if (!$this->request->isPost()) {
+			$this->forward404();
+		}
+
+		$token = $this->request->getPost('_token');
+
+		if (!$this->checkCsrfToken('account/changepasswd', $token)) {
+			return $this->redirect('/account');
+		}
+			$user = $this->session->get('user');
+			$password = $this->request->getPost('password');
+			$password1 = $this->request->getPost('password1');
+
+			$errors = array();
+
+			if (!strlen($password)) {
+				$errors[] = 'パスワードを入力してください';
+			}
+
+			if (!strlen($password1)) {
+				$errors[] = 'パスワードを入力してください';
+			}
+
+			if ($password !== $password1){
+				$errors[] = '両方とも同じパスワードを入力してください';
+			}
+
+			if (count($errors) === 0){
+				$this->db_manager->get('User')->changeUsersPassword($user['user_name'], $password);
+				return $this->redirect('/');
+			}
+
+			return $this->render(array(
+					'user_name' => $user_name,
+					'password' => $password,
+					'errors' => $errors,
+					'_token' => $this->generateCsrfToken('account/changepasswd'),
+			),'changepasswd');
+
+
+	}
+
+
+
+
 
 }
