@@ -26,7 +26,7 @@
     </table>
 
     <p>
-        <input type="submit" value="処理実装中のためクリックしても何も起こりません" />
+        <input type="submit" value="パスワードを変更する" />
     </p>
 </form>
 

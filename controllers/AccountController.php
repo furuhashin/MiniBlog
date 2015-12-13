@@ -210,7 +210,7 @@ class AccountController extends Controller//Controllerクラスのインスタ�
 			}
 
 			if (!strlen($password1)) {
-				$errors[] = 'パスワードを入力してください';
+				$errors[] = '再度パスワードを入力してください';
 			}
 
 			if ($password !== $password1){
